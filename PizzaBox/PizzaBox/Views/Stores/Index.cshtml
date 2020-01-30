@@ -1,0 +1,25 @@
+﻿@model IEnumerable<PizzaBox_Web.Models.Stores>
+
+@{
+    ViewData["Title"] = "Stores";
+}
+
+<h1>Our Store Locations</h1>
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayNameFor(modelItem => item.id)</td>
+            <td>@Html.DisplayNameFor(modelItem => item.StoreAddress)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreAddress)
+            </td>
+
+        </tr>
+    }
+</table>
