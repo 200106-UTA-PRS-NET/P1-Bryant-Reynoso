@@ -24,6 +24,15 @@ namespace PizzaBox_Data.Repositories
             this.db = db ?? throw new ArgumentNullException(nameof(db));
         }
 
+        //public IEnumerable<PizzaBox_Lib.Models.Stores> GetStores()
+        //{
+        //    var query = from o in db.Stores
+        //                select Mapper.Map(o);
+
+        //    return query;
+        //}
+
+
         public void AddOrder(PizzaBox_Lib.Models.Orders orders)
         {
             db.Orders.Add(Mapper.Map(orders));
@@ -77,5 +86,23 @@ namespace PizzaBox_Data.Repositories
                 return;
             }
         }
+
+
+        //===========
+        //===========
+        //===========
+        public IEnumerable<PizzaBox_Lib.Models.Stores> GetStores(string search = null)
+        {
+            var query = from o in db.Stores
+                        select Mapper.Map(o);
+
+            return query;
+        }
+
+        //===========
+        //===========
+        //===========
+
+
     }
 }

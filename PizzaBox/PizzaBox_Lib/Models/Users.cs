@@ -7,7 +7,7 @@ namespace PizzaBox_Lib.Models
     {
         public Users()
         {
-            Orders = new HashSet<Orders>();
+           // Orders = new HashSet<Orders>();
         }
 
         public int Id { get; set; }
@@ -15,6 +15,6 @@ namespace PizzaBox_Lib.Models
         public string Pass { get; set; }
         public bool IsEmployee { get; set; }
 
-        public virtual ICollection<Orders> Orders { get; set; }
+        //public virtual ICollection<Orders> Orders { get; set; }
     }
 }

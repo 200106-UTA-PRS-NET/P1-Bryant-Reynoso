@@ -1,0 +1,32 @@
+﻿@*@model PizzaBox_Web.Models.PizzaModel
+*@
+@model PizzaBox_Web.Models.OrderViewModel
+
+@{
+    ViewData["Title"] = "Confirm Pizza";
+}
+
+<h3>Your Pizza</h3>
+ 
+@foreach(var pizza in Model.PizzasOrdered)
+{
+    <h4>@pizza.PizzaDescription() $@pizza.CalculatePizza()</h4>
+}
+
+ 
+<br />
+ 
+<form method="post" asp-action="ConfirmOrder">
+    <!--pass pizza object to confirm order--> 
+    <input type="hidden" name="store" value="@ViewBag.StoreId" />
+    <input type="hidden" name="pan" value="@ViewBag.PanId" />
+    <input type="hidden" name="crust" value="@ViewBag.CrustId" />
+    <input type="hidden" name="pizza" value="@Model.PizzaNamesList()" />
+    <input type="hidden" name="total" value="@Model.CalculateOrder()"/><br />
+    <input class="btn btn-primary" type="submit" value="Finish Order" />
+</form>
+ 
+ 
+<br />
+
+<Button class="btn btn-primary" onclick='javascript:history.go(-1)'>Go Back</Button>

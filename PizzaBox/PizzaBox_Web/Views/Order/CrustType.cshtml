@@ -1,0 +1,49 @@
+﻿@*@model IEnumerable<PizzaBox_Web.Models.CrustTypes>*@
+@model PizzaBox_Web.Models.OrderViewModel
+
+@{
+    ViewData["Title"] = "Crust Types";
+}
+
+@*<p>@ViewBag.StoreId</p>
+<p>@ViewBag.PanId</p>*@
+
+
+<h3>Choose Crust Type</h3>
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Crust Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.CrustTypes)
+        {
+            <tr>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                   <a asp-controller="Order" asp-action="OurPizzas" asp-route-crust="@item.Id" asp-route-pan="@ViewBag.PanId" asp-route-store="@ViewBag.StoreId"> @Html.DisplayFor(modelItem => item.CrustName)</a>
+                </td>
+                <td>
+                   $ @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<Button class="btn btn-primary" onclick='javascript:history.go(-1)'>Go Back</Button>

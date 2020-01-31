@@ -120,8 +120,8 @@ namespace PizzaBox_Data
                 Userid = orders.Userid,
                 Storeid = orders.Storeid,
                 TimeOrdered = orders.TimeOrdered,
-                Store = Map(orders.Store),
-                User = Map(orders.User) 
+                //Store = Map(orders.Store),
+                //User = Map(orders.User) 
             };
         }
 
@@ -135,8 +135,8 @@ namespace PizzaBox_Data
                 Userid = orders.Userid,
                 Storeid = orders.Storeid,
                 TimeOrdered = orders.TimeOrdered,
-                Store = Map(orders.Store),
-                User = Map(orders.User)
+                //Store = Map(orders.Store),
+                //User = Map(orders.User)
             };
         }
 
@@ -153,7 +153,7 @@ namespace PizzaBox_Data
                 StoreAddress = stores.StoreAddress,
                 Inventory = stores.Inventory,
                 Sales = stores.Sales,
-                Orders = Map(stores.Orders)
+               // Orders = Map(stores.Orders)
             };
         }
 
@@ -165,7 +165,7 @@ namespace PizzaBox_Data
                 StoreAddress = stores.StoreAddress,
                 Inventory = stores.Inventory,
                 Sales = stores.Sales,
-                Orders =  Map(stores.Orders)
+                //Orders =  Map(stores.Orders)
             };
         }
 
@@ -198,7 +198,7 @@ namespace PizzaBox_Data
                 Username = users.Username,
                 Pass = users.Pass,
                 IsEmployee = users.IsEmployee,
-                Orders = Map(users.Orders)
+                //Orders = Map(users.Orders)
             };
         }
          
@@ -210,7 +210,7 @@ namespace PizzaBox_Data
                 Username = users.Username,
                 Pass = users.Pass,
                 IsEmployee = users.IsEmployee,
-                Orders = Map(users.Orders)
+                //Orders = Map(users.Orders)
             };
         }
 

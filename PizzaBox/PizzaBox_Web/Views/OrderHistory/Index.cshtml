@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PizzaBox_Lib.Models.Orders>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+ 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Pizzas
+            </th>
+            <th>
+               Total
+            </th>
+            <th>
+               User
+            </th>
+            <th>
+                Store
+            </th>
+            <th>
+                Time Ordered
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pizzas)
+            </td>
+            <td>
+               $@Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Userid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Storeid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeOrdered)
+            </td> 
+        </tr>
+}
+    </tbody>
+</table>
+
+<Button class="btn btn-primary" onclick='javascript:history.go(-1)'>Go Back</Button>

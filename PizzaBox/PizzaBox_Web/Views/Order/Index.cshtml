@@ -1,0 +1,47 @@
+﻿ 
+@model PizzaBox_Web.Models.OrderViewModel
+
+@{
+    ViewData["Title"] = "Order";
+}
+
+<p>@ViewBag.StoreId</p> 
+<p>@ViewBag.PanId</p>
+<p>@ViewBag.CrustId</p>
+<p>@ViewBag.PizzaId</p>
+
+<h3>Choose a store </h3> 
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Address
+                </th> 
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Stores)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayTextFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        <a asp-controller="Order" asp-action="Store" asp-route-id="@item.id"> @Html.DisplayFor(modelItem => item.StoreAddress) </a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+    <div>
+        <a class="btn btn-primary" asp-controller="Home" asp-action="Index">Cancel</a>
+    </div>
+

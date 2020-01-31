@@ -1,0 +1,47 @@
+﻿@model PizzaBox_Web.Models.OrderViewModel
+
+@{
+    ViewData["Title"] = "Our Pizzas";
+}
+
+@*<p>@ViewBag.StoreId</p>
+<p>@ViewBag.PanId</p>
+<p>@ViewBag.CrustId</p>*@
+
+<h1>Our Pizzas</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Pizza Name
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OurPizzas)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    <a asp-controller="Order" asp-action="ConfirmPizza" asp-route-pizza="@item.Id" asp-route-crust="@ViewBag.CrustId" asp-route-pan="@ViewBag.PanId" asp-route-store="@ViewBag.StoreId"> @Html.DisplayFor(modelItem => item.PizzaName)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td> 
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<Button class="btn btn-primary" onclick='javascript:history.go(-1)'>Go Back</Button>

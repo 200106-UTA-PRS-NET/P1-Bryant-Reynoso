@@ -32,7 +32,7 @@ namespace PizzaBox_Lib.Interfaces
         ////Stores
         ////============
         ////get all
-        //IEnumerable<Stores> GetStores(string search = null);
+        IEnumerable<Stores> GetStores(string search = null);
 
         ////get by id
         //Stores GetStoresById(int id);
@@ -61,7 +61,7 @@ namespace PizzaBox_Lib.Interfaces
         //void AddUser(Users users);
 
         ////update
-        //void UpdateUser(Users userss);
+        //void UpdateUser(Users users);
 
         ////delete
         //void DeleteUser(int storeId);

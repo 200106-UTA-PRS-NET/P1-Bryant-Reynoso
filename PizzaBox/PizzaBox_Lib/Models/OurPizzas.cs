@@ -7,13 +7,13 @@ namespace PizzaBox_Lib.Models
     {
         public OurPizzas()
         {
-            OurPizzaToppings = new HashSet<OurPizzaToppings>();
+           // OurPizzaToppings = new HashSet<OurPizzaToppings>();
         }
 
         public int Id { get; set; }
         public string PizzaName { get; set; }
         public decimal Price { get; set; }
 
-        public virtual ICollection<OurPizzaToppings> OurPizzaToppings { get; set; }
+        //public virtual ICollection<OurPizzaToppings> OurPizzaToppings { get; set; }
     }
 }

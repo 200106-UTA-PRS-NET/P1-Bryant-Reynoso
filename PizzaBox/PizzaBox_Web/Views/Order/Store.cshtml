@@ -1,0 +1,46 @@
+﻿@model PizzaBox_Web.Models.OrderViewModel;
+
+@{
+    ViewData["Title"] = "Store";
+}
+
+
+
+<h3>Choose Pan Size</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Pan Size
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PanSizes)
+        {
+        <tr>
+            <td>
+                @Html.DisplayTextFor(modelItem => item.Id)
+            </td>
+            <td>
+                <a asp-controller="Order" asp-action="CrustType" asp-route-pan="@item.Id" asp-route-store="@ViewBag.StoreId"> @Html.DisplayFor(modelItem => item.Size) </a>
+            </td>
+            <td>
+                $ @Html.DisplayFor(modelItem => item.Price)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<Button class="btn btn-primary" onclick='javascript:history.go(-1)'>Go Back</Button>
+@*<a href='javascript:history.go(-1)'>Go Back</a>*@
+
+
