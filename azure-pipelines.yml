@@ -23,7 +23,10 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'PizzaBoxToken'
     projectName: 'Bryant_PizzaBox'
-    extraProperties: ''
+    extraProperties: |
+      sonar.cs.opencover.reportsPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
+      sonar.cs.vstest.reportsPaths="$(Build.ArtifactStagingDirectory)/test/*.trx"
+      sonar.exclusions=**/wwwroot/lib/**/*
 
 - script: 
     dotnet build --configuration $(buildConfiguration)
@@ -36,12 +39,19 @@ steps:
     --no-build
     --results-directory $(Build.ArtifactStagingDirectory)/test/
     /p:CollectCoverage=true
+    /p:CoverletOutputFormat=opencover
+    /p:CoverletOutput="$(Build.ArtifactStagingDirectory)/coverage/"
   workingDirectory: $(pathtosolution)
   displayName: 'dotnet test'
-  
-- task: PublishTestResults@2
+- task: DotNetCoreCLI@2
   inputs:
-    testResultsFormat: 'VSTest'
-    testResultsFiles: '*.trx'
-    searchFolder: '$(Build.ArtifactStagingDirectory)/test'
-  displayName: 'Publish test results'
+    command: 'test'
+    projects: '$(pathtotest)'
+    workingDirectory: '$(pathtosolution)'
+
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+  
