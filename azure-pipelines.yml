@@ -16,6 +16,15 @@ variables:
   pathtotest: 'PizzaBox/PizzaBox_Test'
 
 steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'PizzaBox SonarCloud Connection'
+    organization: 'reynosobryant'
+    scannerMode: 'MSBuild'
+    projectKey: 'PizzaBoxToken'
+    projectName: 'Bryant_PizzaBox'
+    extraProperties: ''
+
 - script: 
     dotnet build --configuration $(buildConfiguration)
   workingDirectory: $(pathtosolution)
