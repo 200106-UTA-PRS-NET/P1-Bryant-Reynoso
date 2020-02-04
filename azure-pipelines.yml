@@ -18,7 +18,7 @@ variables:
 steps:
 - script: 
     dotnet build --configuration $(buildConfiguration)
-    workingDirectory:$(pathtosolution)
+  workingDirectory: $(pathtosolution)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: dotnet test
