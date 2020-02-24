@@ -1,0 +1,57 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+  pathtosolution: 'PizzaBox/'
+  pathtoproject: 'PizzaBox/PizzaBox_Web'
+  pathtotest: 'PizzaBox/PizzaBox_Test'
+
+steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'PizzaBox SonarCloud Connection'
+    organization: 'reynosobryant'
+    scannerMode: 'MSBuild'
+    projectKey: 'PizzaBoxToken'
+    projectName: 'Bryant_PizzaBox'
+    extraProperties: |
+      sonar.cs.opencover.reportsPaths="$(Build.ArtifactStagingDirectory)/coverage/*"
+      sonar.cs.vstest.reportsPaths="$(Build.ArtifactStagingDirectory)/test/*.trx"
+      sonar.exclusions=**/wwwroot/lib/**/*
+
+- script: 
+    dotnet build --configuration $(buildConfiguration)
+  workingDirectory: $(pathtosolution)
+  displayName: 'dotnet build $(buildConfiguration)'
+
+- script: dotnet test
+    --configuration $(buildConfiguration)
+    --logger trx
+    --no-build
+    --results-directory $(Build.ArtifactStagingDirectory)/test/
+    /p:CollectCoverage=true
+    /p:CoverletOutputFormat=opencover
+    /p:CoverletOutput="$(Build.ArtifactStagingDirectory)/coverage/"
+  workingDirectory: $(pathtosolution)
+  displayName: 'dotnet test'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '$(pathtotest)'
+    workingDirectory: '$(pathtosolution)'
+
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
+  
