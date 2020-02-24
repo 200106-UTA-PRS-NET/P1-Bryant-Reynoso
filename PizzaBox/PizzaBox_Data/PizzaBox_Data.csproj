@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Repositories\CrustTypeRepository.cs" />
+    <Compile Remove="Repositories\OrderRepository.cs" />
+    <Compile Remove="Repositories\OurPizzaRepository.cs" />
+    <Compile Remove="Repositories\OurPizzaToppingsRepository.cs" />
+    <Compile Remove="Repositories\PanSizeRepository.cs" />
+    <Compile Remove="Repositories\StoreRepository.cs" />
+    <Compile Remove="Repositories\ToppingRepository.cs" />
+    <Compile Remove="Repositories\UserRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

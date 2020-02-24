@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity; 
+using Microsoft.AspNetCore.Hosting; 
 using Microsoft.EntityFrameworkCore;
 using PizzaBox_Web.Data;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PizzaBox_Data.Entities;
 using PizzaBox_Data.Repositories;
-using PizzaBox_Lib.Models;
 using PizzaBox_Lib.Interfaces;
 
 namespace PizzaBox_Web

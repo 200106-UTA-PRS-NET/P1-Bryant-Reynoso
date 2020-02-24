@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using System.Collections.Generic; 
 using Microsoft.AspNetCore.Mvc;
 using PizzaBox_Lib.Interfaces; 
 using PizzaBox_Web.Models;
@@ -43,7 +40,7 @@ namespace PizzaBox_Web.Controllers
 
             return View(OrderVM);
         }
-         
+        
         [HttpPost]
         public ActionResult Index(int? store, int? pan, int? crust, string? pizza)
         {
@@ -146,7 +143,7 @@ namespace PizzaBox_Web.Controllers
 
             return View(OrderVM);
         }
-         
+        
         public ActionResult CrustType(int? store, int? pan)
         {
             ViewBag.StoreId = store;
@@ -239,48 +236,7 @@ namespace PizzaBox_Web.Controllers
 
             return View(orderVM);
         }
-
-        //[HttpPost]
-        //public ActionResult ConfirmPizza(int? store, int? pan, int? crust, int? pizza)
-        //{
-        //    ViewBag.StoreId = store;
-        //    ViewBag.PanId = pan;
-        //    ViewBag.CrustId = crust;
-        //    ViewBag.PizzaId = pizza;
-
-        //    PizzaModel pm = new PizzaModel
-        //    {
-        //        PanSize = _repository.GetPanSizeById(ViewBag.PanId).Size,
-        //        PanPrice = _repository.GetPanSizeById(ViewBag.PanId).Price,
-        //        CrustName = _repository.GetCrustTypeById(ViewBag.CrustId).CrustName,
-        //        CrustPrice = _repository.GetCrustTypeById(ViewBag.CrustId).Price,
-        //        PizzaName = _repository.OurPizzaById(ViewBag.PizzaId).PizzaName,
-        //        PizzaPrice = _repository.OurPizzaById(ViewBag.PizzaId).Price
-        //    };
-
-
-        //    pizzaList.Add(pm);
-
-        //    OrderViewModel orderVM = new OrderViewModel
-        //    {
-        //        Storeid = ViewBag.StoreId,
-        //        PizzasOrdered = pizzaList
-
-        //    };
-
-        //    return View(pm);
-        //}
-
-        //[HttpGet]
-        //public ActionResult ConfirmOrder(int? store, int? pan, int? crust, int? pizza)
-        //{
-
-        //    return View();
-        //}
-
-
-
-
+ 
         [HttpPost]
         public ActionResult ConfirmOrder(int store, int pan, int crust, string pizza, decimal total)
         { 

@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Interfaces\ICrustTypeRepository.cs" />
+    <Compile Remove="Interfaces\IOrderRepository.cs" />
+    <Compile Remove="Interfaces\IOurPizzasRepository.cs" />
+    <Compile Remove="Interfaces\IOurPizzaToppingsRepository.cs" />
+    <Compile Remove="Interfaces\IPanSizeRepository.cs" />
+    <Compile Remove="Interfaces\IStoreRepository.cs" />
+    <Compile Remove="Interfaces\IToppingRepository.cs" />
+    <Compile Remove="Interfaces\IUserRepository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

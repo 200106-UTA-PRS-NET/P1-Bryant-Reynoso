@@ -4,10 +4,7 @@
 @{
     ViewData["Title"] = "Crust Types";
 }
-
-@*<p>@ViewBag.StoreId</p>
-<p>@ViewBag.PanId</p>*@
-
+ 
 
 <h3>Choose Crust Type</h3>
  
@@ -29,8 +26,7 @@
     <tbody>
         @foreach (var item in Model.CrustTypes)
         {
-            <tr>
-                
+            <tr> 
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
