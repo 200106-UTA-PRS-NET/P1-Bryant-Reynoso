@@ -6,7 +6,6 @@ namespace PizzaBox_Web.Models
 {
     public class OrderViewModel
     {
-        //[Display(Name ="Address")]
         public int Id { get; set; }
         public string Pizzas { get; set; }
         public decimal Total { get; set; }
@@ -14,35 +13,18 @@ namespace PizzaBox_Web.Models
         public int Storeid { get; set; }
         public DateTime TimeOrdered { get; set; }
 
-        public List<Orders> Orders { get; set; }
+        public IEnumerable<Orders> Orders { get; set; }
 
-        public List<PanSizes> PanSizes { get; set; }
+        public IEnumerable<PanSizes> PanSizes { get; set; }
 
-        public List<OurPizzas> OurPizzas { get; set; }
+        public IEnumerable<OurPizzas> OurPizzas { get; set; }
 
-        public List<CrustTypes> CrustTypes { get; set; }
+        public IEnumerable<CrustTypes> CrustTypes { get; set; }
 
-        public List<PizzaModel> PizzasOrdered { get; set; }
+        public IEnumerable<PizzaModel> PizzasOrdered { get; set; }
 
-        public List<Stores> Stores { get; set; }
+        public IEnumerable<Stores> Stores { get; set; }
         public Users User { get; set; }
-
-
-
-
-
-        //public string PizzaDescription(PanSizes pan, )
-        //{
-        //    return $"{PanSize}  {CrustName}  {PizzaName}";
-        //}
-
-        //public decimal CalculatePizza()
-        //{
-        //    Total = PizzaPrice + CrustPrice + PanPrice;
-
-        //    return Total;
-        //}
-
         public string PizzaNamesList()
         {
             List<string> pizzaNames = new List<string>();
@@ -64,7 +46,6 @@ namespace PizzaBox_Web.Models
             {
                 Total += pizza.CalculatePizza();
             }
-            //Total = pizza.Price + crust.Price + pan.Price;
 
             return Total;
         }

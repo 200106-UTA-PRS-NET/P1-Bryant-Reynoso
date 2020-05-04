@@ -12,13 +12,10 @@ namespace PizzaBox_Web.Models
         public int panId { get; set; }
         public string CrustName { get; set; }
         public decimal CrustPrice { get; set; }
-
         public string PanSize { get; set; }
         public decimal PanPrice { get; set; }
-
         public string PizzaName{ get; set; }
         public decimal PizzaPrice { get; set; }
-
         public decimal Total  { get; set; }
          
         public string PizzaDescription()

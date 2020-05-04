@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using PizzaBox_Lib.Interfaces; 
 using PizzaBox_Web.Models;
@@ -11,6 +12,7 @@ namespace PizzaBox_Web.Controllers
     {
         private readonly IPizzaBoxRepository _repository;
         public List<PizzaModel> pizzaList = new List<PizzaModel>();
+        private OrderViewModel OVM = new OrderViewModel();
         public OrderController(IPizzaBoxRepository repository)
         {
             _repository = repository;  
@@ -20,25 +22,34 @@ namespace PizzaBox_Web.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            var stores = _repository.GetStores();
+            //var stores = _repository.GetStores();
 
-            List<Stores> storeModel = new List<Stores>();
-            foreach (var item in stores)
-            {
-                Stores store = new Stores
-                {
-                    id = item.Id,
-                    StoreAddress = item.StoreAddress
-                };
-                storeModel.Add(store);
-            }
+            //List<Stores> storeModel = new List<Stores>();
+            //foreach (var item in stores)
+            //{
+            //    Stores store = new Stores
+            //    {
+            //        id = item.Id,
+            //        StoreAddress = item.StoreAddress
+            //    };
+            //    storeModel.Add(store);
+            //}
 
-            var OrderVM = new OrderViewModel()
-            {
-                Stores = storeModel
-            };
+            //var OrderVM = new OrderViewModel()
+            //{
+            //    Stores = storeModel
+            //};
 
-            return View(OrderVM);
+            //return View(OrderVM);
+
+            OVM.Stores = from s in _repository.GetStores()
+                         select new Stores()
+                         {
+                             id = s.Id,
+                             StoreAddress = s.StoreAddress
+                         };
+
+            return View(OVM);
         }
         
         [HttpPost]
