@@ -7,6 +7,7 @@
 <h1>Index</h1>
  
 <table class="table">
+    <caption>This table displays the pizzas ordered</caption>
     <thead>
         <tr>
             <th id="order-id">
@@ -16,10 +17,10 @@
                 Pizzas
             </th>
             <th id="total">
-               Total
+                Total
             </th>
             <th id="user">
-               User
+                User
             </th>
             <th id="store">
                 Store
@@ -31,28 +32,29 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pizzas)
-            </td>
-            <td>
-               $@Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Userid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Storeid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeOrdered)
-            </td> 
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pizzas)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.Total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Userid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Storeid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeOrdered)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
 
