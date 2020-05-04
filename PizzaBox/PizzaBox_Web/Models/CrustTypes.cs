@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace PizzaBox_Web.Models
+﻿namespace PizzaBox_Web.Models
 {
     public class CrustTypes
     {
