@@ -1,6 +1,6 @@
 ﻿using PizzaBox_Lib.Models;
 using System;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 
 namespace PizzaBox_Web.Models
 {

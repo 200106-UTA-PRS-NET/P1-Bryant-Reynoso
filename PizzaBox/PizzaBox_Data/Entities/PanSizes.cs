@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace PizzaBox_Data.Entities
+﻿namespace PizzaBox_Data.Entities
 {
     public partial class PanSizes
     {

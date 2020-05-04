@@ -1,5 +1,4 @@
-﻿
-namespace PizzaBox_Lib.Models
+﻿namespace PizzaBox_Lib.Models
 {
     public class CrustTypes
     {

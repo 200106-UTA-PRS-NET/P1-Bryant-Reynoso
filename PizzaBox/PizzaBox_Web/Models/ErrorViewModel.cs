@@ -1,4 +1,3 @@
-
 namespace PizzaBox_Web.Models
 {
     public class ErrorViewModel
