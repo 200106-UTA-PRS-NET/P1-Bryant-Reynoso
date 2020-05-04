@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using PizzaBox_Lib.Interfaces; 
 using PizzaBox_Web.Models;
@@ -52,7 +53,7 @@ namespace PizzaBox_Web.Controllers
         }
         
         [HttpPost]
-        public ActionResult Index(int? store, int? pan, int? crust, string? pizza)
+        public ActionResult Index(int? store, int? pan, int? crust, string pizza)
         {
             var stores = _repository.GetStores();
             List<Stores> storeModel = new List<Stores>();
@@ -88,7 +89,7 @@ namespace PizzaBox_Web.Controllers
 
             pizzaList.Add(pm);
 
-            OrderViewModel orderVM = new OrderViewModel
+            OrderViewModel OrderVM = new OrderViewModel
             {
                 Storeid = ViewBag.StoreId,
                 PizzasOrdered = pizzaList,
