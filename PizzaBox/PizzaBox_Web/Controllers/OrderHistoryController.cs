@@ -16,21 +16,6 @@ namespace PizzaBox_Web.Controllers
         {
             var orders = _repository.GetOrders();
 
-            //List<Orders> orderList = new List<Orders>();
-            //foreach (var item in orders)
-            //{
-            //    Orders order = new Orders
-            //    {
-            //        Pizzas = item.Pizzas,
-            //        Userid = item.Userid,
-            //        Storeid = item.Storeid,
-            //        TimeOrdered = item.TimeOrdered,
-            //        Total = item.Total
-            //    };
-            //    orderList.Add(order);
-            //}
-             
-
             return View(orders.ToList());
         }
     }

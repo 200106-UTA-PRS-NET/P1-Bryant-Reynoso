@@ -10,8 +10,5 @@ namespace PizzaBox_Lib.Models
         public int? Userid { get; set; }
         public int? Storeid { get; set; }
         public DateTime TimeOrdered { get; set; }
-
-       // public virtual Stores Store { get; set; }
-       // public virtual Users User { get; set; }
     }
 }

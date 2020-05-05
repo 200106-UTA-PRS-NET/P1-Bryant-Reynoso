@@ -19,8 +19,6 @@ namespace PizzaBox_Web.Controllers
         [HttpPost]
         public IActionResult Index(string username, string password)
         {
-            //var query = _repository.GetIdByUserName(username);
-
             foreach (var user in _repository.GetUsers().ToList()) 
             {
                 if (user.Username == username && user.Pass == password)

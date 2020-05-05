@@ -5,45 +5,45 @@
     ViewData["Title"] = "Pan Size";
 
     OrderViewModel orderView = new OrderViewModel();
-
-    //orderView.Id = ViewBag.StoreId;
-    //orderView.Pizzas = 
-
 }
 
-@*<h1>@ViewBag.StoreId</h1>*@
 
-    <table class="table">
-        <thead>
+<h3>Choose Pan Size</h3>
+
+<table class="table">
+    @*<caption>This table displays different pan sizes</caption>*@
+    <thead>
+        <tr>
+            <th id="pansize-id">
+                ID
+            </th>
+            <th id="pan-sizes">
+                Pan Size
+            </th>
+            <th id="pan-price">
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PanSizes)
+        {
             <tr>
-                <th>
-                    ID
-                </th>
-                <th>
-                    Pan Size
-                </th>
-                <th>
-                    Price
-                </th> 
+                <td>
+                    @Html.DisplayTextFor(modelItem => item.Id)
+                </td>
+                <td>
+                    <a asp-controller="Order" asp-action="CrustType" asp-route-pan="@item.Id" asp-route-store="@ViewBag.StoreId"> @Html.DisplayFor(modelItem => item.Size) </a>
+                </td>
+                <td>
+                    $ @Html.DisplayFor(modelItem => item.Price)
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.PanSizes)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayTextFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        <a asp-controller="Order" asp-action="CrustType" asp-route-pan="@item.Id" asp-route-store="@ViewBag.StoreId"> @Html.DisplayFor(modelItem => item.Size) </a>
-                    </td>
-
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 
 <Button class="btn btn-primary" onclick='javascript:history.go(-1)'>Go Back</Button>
- 
+
 
 

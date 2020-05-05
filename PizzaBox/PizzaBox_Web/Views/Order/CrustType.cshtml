@@ -4,42 +4,40 @@
 @{
     ViewData["Title"] = "Crust Types";
 }
- 
 
 <h3>Choose Crust Type</h3>
- 
+
 <table class="table">
+    @*<caption>This table displays different crust types</caption>*@
     <thead>
         <tr>
-            <th>
+            <th id="crust-id">
                 ID
             </th>
-            <th>
+            <th id="crust-name">
                 Crust Name
             </th>
-            <th>
+            <th id="crust-price">
                 Price
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.CrustTypes)
         {
-            <tr> 
+            <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                   <a asp-controller="Order" asp-action="OurPizzas" asp-route-crust="@item.Id" asp-route-pan="@ViewBag.PanId" asp-route-store="@ViewBag.StoreId"> @Html.DisplayFor(modelItem => item.CrustName)</a>
+                    <a asp-controller="Order" asp-action="OurPizzas" asp-route-crust="@item.Id" asp-route-pan="@ViewBag.PanId" asp-route-store="@ViewBag.StoreId"> @Html.DisplayFor(modelItem => item.CrustName)</a>
                 </td>
                 <td>
-                   $ @Html.DisplayFor(modelItem => item.Price)
+                    $ @Html.DisplayFor(modelItem => item.Price)
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
 
 <Button class="btn btn-primary" onclick='javascript:history.go(-1)'>Go Back</Button>

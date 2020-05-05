@@ -7,18 +7,18 @@
 <h1>Our Pizzas</h1>
 
 <table class="table">
+    @*<caption>This table displays different pizzas to choose from</caption>*@
     <thead>
         <tr>
-            <th>
+            <th id="pizza-id">
                 ID
             </th>
-            <th>
+            <th id="pizza-name">
                 Pizza Name
             </th>
-            <th>
+            <th id="pizza-price">
                 Price
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -33,7 +33,7 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Price)
-                </td> 
+                </td>
             </tr>
         }
     </tbody>

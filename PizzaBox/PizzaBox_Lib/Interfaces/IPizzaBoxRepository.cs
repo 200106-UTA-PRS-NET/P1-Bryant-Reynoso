@@ -6,7 +6,7 @@ namespace PizzaBox_Lib.Interfaces
     public interface IPizzaBoxRepository 
     {
 
-        #region: order
+        #region: order methods
         //Order
         //=============
         //get all
@@ -25,17 +25,17 @@ namespace PizzaBox_Lib.Interfaces
         void DeleteOrder(int id);
         #endregion
 
-        #region: stores
+        #region: stores methods
         ////Stores
         ////============
         //get all
         IEnumerable<Stores> GetStores();
 
         //get by id
-        Stores GetStoreById(int id); 
+        Stores GetStoreById(int id);
         #endregion
 
-        #region: users
+        #region: users methods
         //Users
         //============
         //get all
@@ -47,10 +47,10 @@ namespace PizzaBox_Lib.Interfaces
         int GetIdByUserName(string username);
         //add
         void AddUser(Users users);
-         
+
         #endregion
 
-        #region: panSize
+        #region: pan size methods
         //get all
         IEnumerable<PanSizes> GetPanSizes();
 
@@ -58,8 +58,8 @@ namespace PizzaBox_Lib.Interfaces
         PanSizes GetPanSizeById(int id);
 
         #endregion
-         
-        #region: crust
+
+        #region: crust type methods
 
         //Crust
         //============
@@ -69,19 +69,19 @@ namespace PizzaBox_Lib.Interfaces
 
         //get by id
         CrustTypes GetCrustTypeById(int id);
-         
+
         #endregion
 
-        #region: our pizzas
+        #region: our pizzas methods
         //get all
         IEnumerable<OurPizzas> GetOurPizzas();
 
         //get by id
         OurPizzas OurPizzaById(int id);
-         
+
         #endregion
 
-        #region: toppings 
+        #region: topping methods
         //Toppings
         //============
 
@@ -93,7 +93,7 @@ namespace PizzaBox_Lib.Interfaces
 
         #endregion
 
-        #region:our pizza toppings
+        #region:our pizza toppings methods
         //OurPizzaToppings GetToppingsByPizzaId(int pizzaId);
 
         //IEnumerable<OurPizzaToppings> GetOurPizzaToppings();

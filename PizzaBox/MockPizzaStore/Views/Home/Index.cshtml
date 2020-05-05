@@ -1,0 +1,11 @@
+﻿@*@model PizzaBox_Web.Models.OrderViewModel*@
+
+@{
+    ViewData["Title"] = "Home Page";
+
+    foreach (var store in ViewBag.stores)
+    {
+        <p>@store.StoreAddress</p>
+        @*<p>@Html.DisplayTextFor(modelItem => store.StoreAddress)</p>*@
+    }
+}

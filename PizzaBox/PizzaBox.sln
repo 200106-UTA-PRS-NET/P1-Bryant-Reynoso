@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaBox_Lib", "PizzaBox_Li
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaBox_Test", "PizzaBox_Test\PizzaBox_Test.csproj", "{ED0EF888-5A6A-498B-9EAE-C7DF53F8E096}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaBox_Web", "PizzaBox_Web\PizzaBox_Web.csproj", "{7A4D10C5-5290-4142-883A-66477F4BFD33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaBox_Web", "PizzaBox_Web\PizzaBox_Web.csproj", "{7A4D10C5-5290-4142-883A-66477F4BFD33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockPizzaStore", "MockPizzaStore\MockPizzaStore.csproj", "{046156A2-5D6D-48DE-BD7F-AE58D81136C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7A4D10C5-5290-4142-883A-66477F4BFD33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A4D10C5-5290-4142-883A-66477F4BFD33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A4D10C5-5290-4142-883A-66477F4BFD33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{046156A2-5D6D-48DE-BD7F-AE58D81136C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{046156A2-5D6D-48DE-BD7F-AE58D81136C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{046156A2-5D6D-48DE-BD7F-AE58D81136C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{046156A2-5D6D-48DE-BD7F-AE58D81136C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

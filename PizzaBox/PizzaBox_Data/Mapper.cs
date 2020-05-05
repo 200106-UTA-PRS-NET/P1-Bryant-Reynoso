@@ -6,10 +6,7 @@ namespace PizzaBox_Data
 {
     public class Mapper
     {
-
         //CRUST TYPE
-        //=======================
-
         public static PizzaBox_Lib.Models.CrustTypes Map(Entities.CrustTypes crustTypes)
         {
             return new PizzaBox_Lib.Models.CrustTypes()
@@ -30,12 +27,7 @@ namespace PizzaBox_Data
             };
         }
 
-
-        //PAN SIZES
-        //======================
-        //======================
-        
-
+        //PAN SIZES     
         public static PizzaBox_Lib.Models.PanSizes Map(Entities.PanSizes panSizes)
         {
             return new PizzaBox_Lib.Models.PanSizes()
@@ -57,9 +49,6 @@ namespace PizzaBox_Data
         }
 
         //TOPPINGS
-        //======================
-        //======================
-
         public static PizzaBox_Lib.Models.Toppings Map(Entities.Toppings toppings)
         {
             return new PizzaBox_Lib.Models.Toppings()
@@ -81,9 +70,6 @@ namespace PizzaBox_Data
         }
 
         //OUR PIZZAS
-        //======================
-        //======================
-
         public static PizzaBox_Lib.Models.OurPizzas Map(Entities.OurPizzas ourPizzas)
         {
             return new PizzaBox_Lib.Models.OurPizzas()
@@ -105,9 +91,6 @@ namespace PizzaBox_Data
         }
 
         //ORDERS
-        //======================
-        //======================
-
         public static PizzaBox_Lib.Models.Orders Map(Entities.Orders orders)
         {
             return new PizzaBox_Lib.Models.Orders()
@@ -117,9 +100,7 @@ namespace PizzaBox_Data
                 Total = orders.Total,
                 Userid = orders.Userid,
                 Storeid = orders.Storeid,
-                TimeOrdered = orders.TimeOrdered,
-                //Store = Map(orders.Store),
-                //User = Map(orders.User) 
+                TimeOrdered = orders.TimeOrdered
             };
         }
 
@@ -132,17 +113,12 @@ namespace PizzaBox_Data
                 Total = orders.Total,
                 Userid = orders.Userid,
                 Storeid = orders.Storeid,
-                TimeOrdered = orders.TimeOrdered,
-                //Store = Map(orders.Store),
-                //User = Map(orders.User)
+                TimeOrdered = orders.TimeOrdered
             };
         }
 
 
         //STORES
-        //======================
-        //======================
-
         public static PizzaBox_Lib.Models.Stores Map(Entities.Stores stores)
         {
             return new PizzaBox_Lib.Models.Stores()
@@ -150,8 +126,7 @@ namespace PizzaBox_Data
                 Id = stores.Id,
                 StoreAddress = stores.StoreAddress,
                 Inventory = stores.Inventory,
-                Sales = stores.Sales,
-               // Orders = Map(stores.Orders)
+                Sales = stores.Sales
             };
         }
 
@@ -162,15 +137,13 @@ namespace PizzaBox_Data
                 Id = stores.Id,
                 StoreAddress = stores.StoreAddress,
                 Inventory = stores.Inventory,
-                Sales = stores.Sales,
-                //Orders =  Map(stores.Orders)
+                Sales = stores.Sales
             };
         }
 
          
         private static ICollection<PizzaBox_Lib.Models.Orders> Map(ICollection<Entities.Orders> orders)
         {
-
             var map = orders.Select(x => Map(x)); 
             return map.ToList();
         }
@@ -185,9 +158,6 @@ namespace PizzaBox_Data
 
 
         //USERS
-        //======================
-        //======================
-
         public static PizzaBox_Lib.Models.Users Map(Entities.Users users)
         {
             return new PizzaBox_Lib.Models.Users()
@@ -195,8 +165,7 @@ namespace PizzaBox_Data
                 Id = users.Id,
                 Username = users.Username,
                 Pass = users.Pass,
-                IsEmployee = users.IsEmployee,
-                //Orders = Map(users.Orders)
+                IsEmployee = users.IsEmployee
             };
         }
          
@@ -207,15 +176,12 @@ namespace PizzaBox_Data
                 Id = users.Id,
                 Username = users.Username,
                 Pass = users.Pass,
-                IsEmployee = users.IsEmployee,
-                //Orders = Map(users.Orders)
+                IsEmployee = users.IsEmployee
             };
         }
 
 
         //OUR PIZZA TOPPINGS
-        //======================
-        //======================
         public static PizzaBox_Lib.Models.OurPizzaToppings Map(Entities.OurPizzaToppings ourPizzaToppings)
         {
             return new PizzaBox_Lib.Models.OurPizzaToppings()
@@ -233,6 +199,5 @@ namespace PizzaBox_Data
                 ToppingId = ourPizzaToppings.ToppingId
             };
         }
-
     }
 }

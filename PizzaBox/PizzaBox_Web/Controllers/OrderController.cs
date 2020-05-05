@@ -22,26 +22,6 @@ namespace PizzaBox_Web.Controllers
         // GET: Order
         public ActionResult Index()
         {
-            //var stores = _repository.GetStores();
-
-            //List<Stores> storeModel = new List<Stores>();
-            //foreach (var item in stores)
-            //{
-            //    Stores store = new Stores
-            //    {
-            //        id = item.Id,
-            //        StoreAddress = item.StoreAddress
-            //    };
-            //    storeModel.Add(store);
-            //}
-
-            //var OrderVM = new OrderViewModel()
-            //{
-            //    Stores = storeModel
-            //};
-
-            //return View(OrderVM);
-
             OVM.Stores = from s in _repository.GetStores()
                          select new Stores()
                          {
@@ -96,11 +76,10 @@ namespace PizzaBox_Web.Controllers
                 Stores = storeModel
             };
 
-
             return View();
         }
 
-        public ActionResult Store(int id)
+        public ActionResult PanSize(int id)
         {
             ViewBag.StoreId = id;
             ViewBag.StoreName = _repository.GetStoreById(id).StoreAddress;
@@ -116,33 +95,6 @@ namespace PizzaBox_Web.Controllers
                     Id = item.Id,
                     Size = item.Size,
                     Price = item.Price
-                };
-                sizeList.Add(size);
-            }
-
-            OrderViewModel OrderVM = new OrderViewModel
-            {
-                PanSizes = sizeList
-            };
-
-            return View(OrderVM);
-        }
-
-        public ActionResult PanSize(int store)
-        {
-            ViewBag.StoreId = store;
-
-            var PanSizes = _repository.GetPanSizes();
-
-            List<PanSizes> sizeList = new List<PanSizes>();
-
-            foreach (var item in PanSizes)
-            {
-                PanSizes size = new PanSizes
-                {
-                    Id = item.Id,
-                    Size = item.Size,
-                    Price = item.Price 
                 };
                 sizeList.Add(size);
             }
@@ -216,7 +168,6 @@ namespace PizzaBox_Web.Controllers
         [HttpGet]
         public ActionResult ConfirmPizza(int? store, int? pan, int? crust, int? pizza) 
         {
-            
             ViewBag.StoreId = store;
             ViewBag.PanId = pan;
             ViewBag.CrustId = crust;
@@ -234,7 +185,6 @@ namespace PizzaBox_Web.Controllers
                 PizzaName = _repository.OurPizzaById(ViewBag.PizzaId).PizzaName,
                 PizzaPrice = _repository.OurPizzaById(ViewBag.PizzaId).Price
             };
-
 
             pizzaList.Add(pm);
             
@@ -263,8 +213,6 @@ namespace PizzaBox_Web.Controllers
             _repository.AddOrder(newOrder);
 
             return View();
-            //goes back home
-            // return Redirect("~/");
         }
 
     }

@@ -16,7 +16,6 @@ namespace PizzaBox_Web.Controllers
 
         public IActionResult Index()
         {
-            
             return View();
         }
 

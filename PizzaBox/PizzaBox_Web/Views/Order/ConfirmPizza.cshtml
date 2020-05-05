@@ -11,7 +11,6 @@
     <h4>@pizza.PizzaDescription() $@pizza.CalculatePizza()</h4>
 }
 
- 
 <br />
  
 <form method="post" asp-action="ConfirmOrder">
@@ -23,8 +22,7 @@
     <input type="hidden" name="total" value="@Model.CalculateOrder()"/><br />
     <input class="btn btn-primary" type="submit" value="Finish Order" />
 </form>
- 
- 
+
 <br />
 
 <Button class="btn btn-primary" onclick='javascript:history.go(-1)'>Go Back</Button>
