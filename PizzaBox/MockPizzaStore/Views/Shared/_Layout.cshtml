@@ -24,6 +24,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li id="cart-logo-wrapper" class="nav-item">
+                            <!--Make this a partial view, so that you can access the price/item Qty and display it here-->
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ShoppingCart" asp-action="Index">
+                                <img id="cart-logo" src="https://www.seekpng.com/png/full/261-2611186_broadcast-mall-shopping-cart-comments-shopping-cart-icon.png"/>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

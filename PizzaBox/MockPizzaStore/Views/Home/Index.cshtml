@@ -1,11 +1,15 @@
-﻿@*@model PizzaBox_Web.Models.OrderViewModel*@
+﻿@model MockPizzaStore.Models.OrderViewModel
 
 @{
     ViewData["Title"] = "Home Page";
 
-    foreach (var store in ViewBag.stores)
+    @*<p> @Model.pizzas.FirstOrDefault(row => row.ToLower() == "pepperone") </p>
+        <br />*@
+
+    @*foreach (var pizza in Model.pizzas)
     {
-        <p>@store.StoreAddress</p>
-        @*<p>@Html.DisplayTextFor(modelItem => store.StoreAddress)</p>*@
-    }
+        <p>@pizza.PizzaName</p>
+    }*@
+
+    <p></p>
 }

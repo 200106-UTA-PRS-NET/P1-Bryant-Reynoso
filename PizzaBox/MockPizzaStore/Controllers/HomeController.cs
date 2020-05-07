@@ -14,6 +14,10 @@ namespace MockPizzaStore.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IPizzaBoxRepository _repository;
+        public OrderViewModel customerOrder = new OrderViewModel()
+        {
+            Total = 0
+        };
 
         public HomeController(ILogger<HomeController> logger, IPizzaBoxRepository repository)
         {
@@ -24,11 +28,19 @@ namespace MockPizzaStore.Controllers
 
         public IActionResult Index()
         {
-            //=========
-            ViewBag.stores = _repository.GetStores();
-            ViewBag.test = "some value";
-            //=========
-            return View();
+            var pizzas = _repository.GetOurPizzas();
+            //ViewBag.stores = _repository.GetStores();
+            TempData["pizzas"] = "MyTemp";
+            ViewBag.test = "MyViewBag";
+
+            var stores = _repository.GetStores();
+
+            foreach (var pizza in pizzas) 
+            {
+                customerOrder.pizzas.Add(pizza);
+            }
+
+            return View(customerOrder);
         }
 
         public IActionResult Privacy()
