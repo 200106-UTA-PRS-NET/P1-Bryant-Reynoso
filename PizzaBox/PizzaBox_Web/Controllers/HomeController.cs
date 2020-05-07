@@ -16,6 +16,9 @@ namespace PizzaBox_Web.Controllers
 
         public IActionResult Index()
         {
+            TempData["pizzas"] = "MyTempDataYOYO";
+            ViewBag.test = "MyViewBagYOYO";
+            
             return View();
         }
 

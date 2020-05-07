@@ -1,45 +1,41 @@
-﻿ 
-@model PizzaBox_Web.Models.OrderViewModel
+﻿@model PizzaBox_Web.Models.OrderViewModel
 
 @{
     ViewData["Title"] = "Order";
 }
 
-<p>@ViewBag.StoreId</p> 
-<p>@ViewBag.PanId</p>
-<p>@ViewBag.CrustId</p>
-<p>@ViewBag.PizzaId</p>
-
-<h3>Choose a store </h3> 
+<h3>Choose a store </h3>
 
 @*<summary>
-    This table displays different stores to choose from
-</summary>*@
-<table class="table">
-        <thead>
-            <tr>
-                <th id="store-id">
-                    ID
-                </th>
-                <th id="address">
-                    Address
-                </th> 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Stores)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayTextFor(modelItem => item.id)
-                    </td>
-                    <td>
-                        <a asp-controller="Order" asp-action="PanSize" asp-route-id="@item.id"> @Html.DisplayFor(modelItem => item.StoreAddress) </a>
-                    </td>
+        This table displays different stores to choose from
+    </summary>*@
 
-                </tr>
-            }
-        </tbody>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th id="store-id">
+                ID
+            </th>
+            <th id="address">
+                Address
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Stores)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayTextFor(modelItem => item.id)
+                </td>
+                <td>
+                    <a asp-controller="Order" asp-action="PanSize" asp-route-id="@item.id"> @Html.DisplayFor(modelItem => item.StoreAddress) </a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
 </table>
 
 

@@ -42,8 +42,7 @@ namespace PizzaBox_Web.Controllers
             ViewBag.PanId = pan;
             ViewBag.CrustId = crust;
             ViewBag.PizzaId = pizza;
-
-
+            
             foreach (var item in stores)
             {
                 Stores newStore = new Stores
