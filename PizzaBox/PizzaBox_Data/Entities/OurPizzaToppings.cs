@@ -1,4 +1,7 @@
-﻿namespace PizzaBox_Data.Entities
+﻿using System;
+using System.Collections.Generic;
+
+namespace PizzaBox_Data.Entities
 {
     public partial class OurPizzaToppings
     {

@@ -76,7 +76,8 @@ namespace PizzaBox_Data
             {
                 Id = ourPizzas.Id,
                 PizzaName = ourPizzas.PizzaName,
-                Price = ourPizzas.Price
+                Price = ourPizzas.Price,
+                Image = ourPizzas.Image
             };
         }
 

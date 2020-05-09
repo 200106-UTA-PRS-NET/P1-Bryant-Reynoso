@@ -1,7 +1,46 @@
-﻿
+﻿@model MockPizzaStore.Models.OrderViewModel
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Our Menu";
 }
 
-<h1>Index</h1>
+<h1>Pizzas</h1>
 
+@*<img src="~/Images/hawaiian.jpg" />*@
+<div class="row">
+    @{
+        //if tempdata["store"] is empty then redirect back to store page,
+        //if not display menu
+
+        foreach (var pizza in Model.pizzas)
+        {
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-text">@pizza.PizzaName</h4>
+                    </div>
+                    <img id="pizza-card-image" src="@Url.Content(pizza.Image)" alt="Pizza image">
+                    <div class="card-block">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="ddm1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Size
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="ddm1">
+                                <a class="dropdown-item" href="#">Action</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="ddm2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Crust
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="ddm2">
+                                <a class="dropdown-item" href="#">Action</a>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger font-weight-bold">Add To Order</button>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

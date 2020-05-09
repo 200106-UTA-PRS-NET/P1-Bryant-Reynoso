@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PizzaBox_Data.Entities
 {
@@ -12,6 +13,7 @@ namespace PizzaBox_Data.Entities
         public int Id { get; set; }
         public string PizzaName { get; set; }
         public decimal Price { get; set; }
+        public string Image { get; set; }
 
         public virtual ICollection<OurPizzaToppings> OurPizzaToppings { get; set; }
     }

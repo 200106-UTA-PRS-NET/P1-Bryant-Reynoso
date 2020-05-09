@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace PizzaBox_Data.Entities
 {
@@ -22,14 +24,14 @@ namespace PizzaBox_Data.Entities
         public virtual DbSet<Toppings> Toppings { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-//                optionsBuilder.UseSqlServer("Server=.\\SQlExpress;Database=PizzaDb; Trusted_Connection=true");
-//            }
-//        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=PizzaDb;Trusted_Connection=True;");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -104,6 +106,11 @@ namespace PizzaBox_Data.Entities
             modelBuilder.Entity<OurPizzas>(entity =>
             {
                 entity.ToTable("OurPizzas", "PizzaBox");
+
+                entity.Property(e => e.Image)
+                    .HasColumnName("image")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PizzaName)
                     .IsRequired()

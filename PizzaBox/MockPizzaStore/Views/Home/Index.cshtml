@@ -3,13 +3,14 @@
 @{
     ViewData["Title"] = "Home Page";
 
-    @*<p> @Model.pizzas.FirstOrDefault(row => row.ToLower() == "pepperone") </p>
-        <br />*@
-
-    @*foreach (var pizza in Model.pizzas)
-    {
-        <p>@pizza.PizzaName</p>
-    }*@
-
-    <p></p>
 }
+
+<h1>@TempData.Peek("Cart")</h1>
+
+<h3>Welcome</h3>
+
+<p>put a carousel here and call to action</p>
+
+<a asp-controller="Menu" asp-action="Index" class="btn btn-danger font-weight-bold">Start Order</a>
+
+@{TempData.Keep("Cart"); }

@@ -11,6 +11,7 @@ namespace PizzaBox_Lib.Models
         public int Id { get; set; }
         public string PizzaName { get; set; }
         public decimal Price { get; set; }
+        public string Image { get; set; }
 
         //public virtual ICollection<OurPizzaToppings> OurPizzaToppings { get; set; }
     }
