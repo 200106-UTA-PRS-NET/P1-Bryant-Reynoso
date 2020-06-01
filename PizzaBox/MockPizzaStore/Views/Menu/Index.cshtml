@@ -1,4 +1,4 @@
-﻿@model MockPizzaStore.Models.OrderViewModel
+﻿@model MockPizzaStore.Models.PizzaFormViewModel
 
 @{
     ViewData["Title"] = "Our Menu";
@@ -6,41 +6,35 @@
 
 <h1>Pizzas</h1>
 
-@*<img src="~/Images/hawaiian.jpg" />*@
 <div class="row">
     @{
-        //if tempdata["store"] is empty then redirect back to store page,
-        //if not display menu
-
-        foreach (var pizza in Model.pizzas)
+        foreach (var pizza in Model.Pizzas)
         {
-            <div class="col-sm-6">
+            <div class="col-sm-6 mb-5">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-text">@pizza.PizzaName</h4>
                     </div>
                     <img id="pizza-card-image" src="@Url.Content(pizza.Image)" alt="Pizza image">
                     <div class="card-block">
-                        <div class="dropdown">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="ddm1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Size
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="ddm1">
-                                <a class="dropdown-item" href="#">Action</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="ddm2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Crust
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="ddm2">
-                                <a class="dropdown-item" href="#">Action</a>
-                            </div>
-                        </div>
-                        <button class="btn btn-danger font-weight-bold">Add To Order</button>
+                        <!---->
+                        <form asp-action="Index" asp-controller="Menu">
+                            <input type="hidden" asp-for="PizzaName" value="@pizza.PizzaName" />
+
+                            <select id="pan-dropdown" class="btn pizza-choices" asp-for="SelectedPanSize" asp-items="Model.PanSizes">
+                                @*<option selected disabled>Choose a Pan Size</option>*@
+                            </select>
+
+                            <select id="crust-dropdown" class="btn pizza-choices" asp-for="SelectedCrustType" asp-items="Model.CrustTypes">
+                                @*<option selected disabled>Choose Your Crust</option>*@
+                            </select>
+                            <input class="btn btn-danger font-weight-bold" type="submit" value="Add To Order" />
+                        </form>
                     </div>
                 </div>
             </div>
         }
     }
 </div>
+
+@{TempData.Keep("Cart"); }

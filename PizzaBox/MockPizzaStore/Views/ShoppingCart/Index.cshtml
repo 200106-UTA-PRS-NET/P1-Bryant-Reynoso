@@ -1,13 +1,30 @@
-﻿
+﻿@model OrderViewModel
+
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>My Order</h1>
 
-<h1>@TempData.Peek("Cart")</h1>
-<h3>Your Shopping Cart is Empty</h3>
-<h6>this will only show if passed data is empty</h6>
+<h1>
+    items in your cart
+</h1>
+
+<!--If list is empty display this-->
+@if (!Model.Pizzas.Any())
+{
+    <h3>Your Shopping Cart is Empty</h3>
+    <h6>this will only show if passed data is empty</h6>
+}
+
+<!--Display all pizzas in cart-->
+@foreach (var pizza in Model.Pizzas)
+{
+    <p>@pizza.PizzaName</p>
+    <p>@pizza.PanSize</p>
+    <p>@pizza.CrustType</p>
+    <p>@pizza.Price</p>
+}
 
 <a asp-controller="Menu" asp-action="Index" class="btn btn-danger font-weight-bold">Go to Menu</a>
 

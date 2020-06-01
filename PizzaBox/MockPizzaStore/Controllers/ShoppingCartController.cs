@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MockPizzaStore.Models;
 
 namespace MockPizzaStore.Controllers
 {
@@ -10,7 +11,7 @@ namespace MockPizzaStore.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return View(TempData.Peek<OrderViewModel>("Cart"));
         }
     }
 }

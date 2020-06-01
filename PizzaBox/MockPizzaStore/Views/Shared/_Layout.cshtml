@@ -9,9 +9,13 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MockPizzaStore</a>
+                
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img id="logo" src="~/Images/logo.png" />
+                    <h4>MockPizzaStore</h4>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -30,7 +34,7 @@
                         <li id="cart-logo-wrapper" class="nav-item">
                             <!--Make this a partial view, so that you can access the price/item Qty and display it here-->
                             <a class="nav-link text-dark" asp-area="" asp-controller="ShoppingCart" asp-action="Index">
-                                <img id="cart-logo" src="https://www.seekpng.com/png/full/261-2611186_broadcast-mall-shopping-cart-comments-shopping-cart-icon.png" />
+                                <img id="cart-logo" src="~/Images/shopping-cart-icon-white.png" />
                             </a>
                         </li>
                     </ul>

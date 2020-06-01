@@ -16,8 +16,8 @@ namespace MockPizzaStore.Controllers
         private IPizzaBoxRepository _repository;
         private int Items { get; set; }
 
-        [TempData]
-        public string Cart { get; set; }
+        //[TempData]
+        public OrderViewModel Cart { get; set; }
 
         public HomeController(ILogger<HomeController> logger, IPizzaBoxRepository repository)
         {
@@ -27,8 +27,16 @@ namespace MockPizzaStore.Controllers
 
         public IActionResult Index()
         {
-            Items = 0;
-            Cart = Items + " items in your cart";
+           // Items = 0;
+
+            Cart = new OrderViewModel()
+            {
+                StoreId = null,
+                Total = 0
+            };
+
+            //serialize using a custom extension method that calls a json serializer
+            TempData.Put("Cart", Cart);
 
             return View();
         }

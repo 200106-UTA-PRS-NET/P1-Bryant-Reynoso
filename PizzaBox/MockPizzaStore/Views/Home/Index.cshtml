@@ -5,12 +5,49 @@
 
 }
 
-<h1>@TempData.Peek("Cart")</h1>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="box21">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner" style="height: 500px;">
+                <div class="carousel-item carousel-item-wrapper">
+                    <img class="d-block w-100" src="~/Images/meatlovers.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item carousel-item-wrapper">
+                    <img class="d-block w-100" src="~/Images/pepperoni.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item carousel-item-wrapper">
+                    <img class="d-block w-100" src="~/Images/works.jpg" alt="Third slide">
+                </div>
+                <div class="carousel-item carousel-item-wrapper active">
+                    <img class="d-block w-100" src="~/Images/cheese.jpg" alt="Fourth slide">
+                </div>
+                <div class="carousel-item carousel-item-wrapper">
+                    <img class="d-block w-100" src="~/Images/hawaiian.jpg" alt="Fifth slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
 
-<h3>Welcome</h3>
-
-<p>put a carousel here and call to action</p>
-
-<a asp-controller="Menu" asp-action="Index" class="btn btn-danger font-weight-bold">Start Order</a>
+            <div class="box-content">
+                <h1 class="green fancy">Welcome to Mock Pizza Store</h1>
+                <h3>Try one of our mock specialty pizzas</h3>
+                <a asp-controller="Menu" asp-action="Index">
+                    <h5 class="red">ORDER NOW</h5>
+                </a>
+            </div>
+        </div>
+    </div>
 
 @{TempData.Keep("Cart"); }
